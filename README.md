@@ -18,21 +18,25 @@ Because the data spans multiple years in quarterly intervals, it captures **long
 ## Project Workflow
 
 ### 1. Data Exploration and Feature Analysis
+
 - Conducted correlation studies to identify relationships between features and target variables  
 - Generated visualizations such as heatmaps and scatter plots to summarize patterns and feature redundancy  
 - Verified expected relationships, e.g., lower prime interest rates correlating with higher housing prices  
 
 ### 2. Regression Model Benchmarking
+
 - Established a baseline using **Linear Regression**  
 - Evaluated multiple linear models: RidgeCV, LassoCV, HuberRegressor, SGDRegressor, and ElasticNetCV  
 - Tested polynomial features to check for non-linear trends; found that the housing price trend is largely linear  
 
 ### 3. Temporal Evaluation
+
 - Applied temporal splits (e.g., 2010 and 2018) to simulate real-world prediction scenarios  
 - Compared models based on **MSE** and **R²**, visualizing performance across models  
 - Found that model performance is highly sensitive to the choice of training and testing periods  
 
 ### 4. Gradient Boosting with Residuals
+
 To capture both linear trends and non-linear patterns:
 
 1. **Trend features** (linear relationships) are modeled using a linear regression to predict housing prices.  
@@ -41,6 +45,7 @@ To capture both linear trends and non-linear patterns:
 4. **Final predictions** are obtained by adding the predicted residuals to the linear trend predictions, combining linear extrapolation with non-linear adjustments.
 
 Key points:
+
 - Trend features: all features except Unemployment Rates  
 - Tree features: Unemployment Rates, Prime Interest Rate, Historical Average Payment to Income Percent  
 - R² score before boosting (linear trend only): 0.80  
