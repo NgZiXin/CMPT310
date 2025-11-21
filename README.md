@@ -1,6 +1,13 @@
 # CMPT 310 Project: Housing Affordability Analysis in British Columbia
 
-**Python Version:** 3.11.x
+**Python:**: 3.11.x
+**jupyterlab**: 4.4.9
+
+**numpy**: 2.3.3
+**pandas**: 2.3.3
+**matplotlib**: 3.10.6
+**seaborn**: 0.13.2
+**scikit-learn**: 1.7.2
 
 ---
 
