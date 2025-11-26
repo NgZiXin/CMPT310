@@ -26,7 +26,7 @@ python -m pip list
 jupyter lab --version
 ```
 
-***See requirements.txt for exact env setup***
+***See requirements.txt for exact env setup and dependencies***
 
 ---
 
