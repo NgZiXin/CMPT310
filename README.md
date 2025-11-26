@@ -1,13 +1,32 @@
 # CMPT 310 Project: Housing Affordability Analysis in British Columbia
+---
+Python Libs:
 
-**Python:**: 3.11.x
-**jupyterlab**: 4.4.9
+```
+Python        3.11.x
+JupyterLab    4.4.9
+numpy         2.3.3
+pandas        2.3.3
+matplotlib    3.10.6
+seaborn       0.13.2
+scikit-learn  1.7.2
+```
 
-**numpy**: 2.3.3
-**pandas**: 2.3.3
-**matplotlib**: 3.10.6
-**seaborn**: 0.13.2
-**scikit-learn**: 1.7.2
+Setup (Conda ENV):
+
+```
+# Conda env setup
+conda create -n housing_pred python=3.11 -y
+conda activate housing_pred
+conda install jupyterlab=4.4.9 -y
+conda install numpy=2.3.3 pandas=2.3.3 matplotlib=3.10.6 seaborn=0.13.2 scikit-learn=1.7.2 -y
+
+# Verify installations
+python -m pip list
+jupyter lab --version
+```
+
+***See requirements.txt for exact env setup***
 
 ---
 

@@ -1,4 +1,4 @@
-name: proj307
+name: proj310
 channels:
   - conda-forge
   - defaults
