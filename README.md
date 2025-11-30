@@ -1,8 +1,10 @@
+
 # CMPT 310 Project: Housing Affordability Analysis in British Columbia
+
 ---
 Python Libs:
 
-```
+``` bash
 Python        3.11.x
 JupyterLab    4.4.9
 numpy         2.3.3
@@ -14,7 +16,7 @@ scikit-learn  1.7.2
 
 Setup (Conda ENV):
 
-```
+``` bash
 # Conda env setup
 conda create -n housing_pred python=3.11 -y
 conda activate housing_pred
@@ -80,13 +82,61 @@ Key points:
 
 Challenges included selecting appropriate trend and tree features. Initial attempts based on feature collinearity were insufficient, so a more experimental, manual approach was used. Some features, like Prime Interest Rate and Historical Average Payment to Income Percent, improved accuracy when included in both trend and tree sets.
 
+### 5. Finalized Regression Model With All Modules Combined
+
+#### Running the Model
+
+This project includes an interactive command-line interface to test different regression models with various configurations.
+
+#### Basic Usage
+
+```bash
+python comp_model.py
+```
+
+#### Command-Line Arguments
+
+| Flag | Short | Type | Default | Description |
+|------|-------|------|---------|-------------|
+| `--model` | `-m` | str | `OLS` | Linear regression model: `OLS`, `Ridge`, `Lasso`, `Huber`, `SGD` |
+| `--splityear` | `-s` | int | `2018` | Year to split train/test dataset (range: 1991–2021) |
+| `--featurex` | `-fx` | str | `None` | Feature group to exclude: `None`, `GDP`, `CPI`, `Unemployment` |
+| `--disable-boosting` | — | flag | `False` | Disable Gradient Tree Boosting (uses trend-only prediction) |
+
+#### Examples
+
+```bash
+# Run OLS with default settings
+python comp_model.py
+
+# Test Ridge regression, split on 2016
+python comp_model.py -m Ridge -s 2016
+
+# Compare Lasso without CPI features
+python comp_model.py -m Lasso -fx CPI
+
+# Test Huber without gradient boosting
+python comp_model.py -m Huber --disable-boosting
+
+# Full custom run
+python comp_model.py -m SGD -s 2015 -fx Unemployment
+```
+
+#### Output
+
+- **Console**: MSE, R² scores for trend-only and combined (trend + tree) predictions
+- **Plot**: Interactive matplotlib showing actual vs predicted housing prices over time
+- **File**: Plot saved to `Output/CM-{model}-{year}-{features}-{boosting}.png`
+
 ---
 
 ## Key Features
 
 - **Data Visualizations:** Correlation heatmaps, feature-target relationships, model performance charts  
-- **Regression Models:** Linear, regularized, and robust regressors; Gradient Boosting for residual modeling  
-- **Temporal Splitting:** Evaluates model generalization across different historical periods  
+- **Regression Models:** Linear (OLS), regularized (Ridge, Lasso, ElasticNet), and robust (Huber, SGD) regressors  
+- **Gradient Boosting:** Hybrid trend + residual model combining linear predictions with decision tree adjustments for non-linear patterns  
+- **Temporal Splitting:** Evaluates model generalization across different historical periods (configurable train/test split year)  
+- **Interactive CLI:** Command-line arguments to dynamically test model configurations, feature exclusions, and boosting strategies in real time  
 - **Reproducibility:** Python 3.11.x compatible, with scripts for data cleaning, analysis, and model evaluation  
 
 ---
