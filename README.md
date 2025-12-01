@@ -100,7 +100,7 @@ python comp_model.py
 
 | Flag | Short | Type | Default | Description |
 |------|-------|------|---------|-------------|
-| `--model` | `-m` | str | `OLS` | Linear regression model: `OLS`, `Ridge`, `Lasso`, `Huber`, `SGD` |
+| `--model` | `-m` | str | `Lasso` | Linear regression model: `OLS`, `Ridge`, `Lasso`, `Huber`, `SGD` |
 | `--splityear` | `-s` | int | `2018` | Year to split train/test dataset (range: 1991–2021) |
 | `--featurex` | `-fx` | str | `None` | Feature group to exclude: `None`, `GDP`, `CPI`, `Unemployment` |
 | `--disable-boosting` | — | flag | `False` | Disable Gradient Tree Boosting (uses trend-only prediction) |
