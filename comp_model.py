@@ -55,7 +55,7 @@ def plot_results(df_test, trend_pred_test, final_pred, info, args):
     
     plt.figure(figsize=(12, 6))
     plt.scatter(df_plot['YEAR'], df_plot['MEDIAN HOUSING PRICE'], color='blue', label='Actual', s=50)
-    plt.plot(df_plot['YEAR'], final_pred, color='red', linewidth=2, label='Predicted (Trend + Tree)')
+    plt.plot(df_plot['YEAR'], final_pred, color='red', linewidth=2, label='Trend + Tree')
     plt.plot(df_plot['YEAR'], trend_pred_test, color='orange', linewidth=2, linestyle='--', label='Trend Only')
     
     plt.xlabel('Year')

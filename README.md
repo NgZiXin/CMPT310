@@ -90,6 +90,8 @@ This project includes an interactive command-line interface to test different re
 
 #### Basic Usage
 
+**Important!**: Run data_merge.ipynb first if merged dataset is missing.
+
 ```bash
 python comp_model.py
 ```
